@@ -52,6 +52,8 @@
         android:textSize="18sp" />
 
     <EditText
+        android:inputType="textPassword"
+        android:importantForAutofill="no"
         android:id="@+id/enter_ps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,6 +87,7 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold" />
+
 
 
 </LinearLayout>

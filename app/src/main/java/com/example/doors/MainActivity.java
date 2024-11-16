@@ -3,7 +3,9 @@ package com.example.doors;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.tv_register);
         email = findViewById(R.id.et_email);
         password = findViewById(R.id.enter_ps);
+        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        password.setTransformationMethod(PasswordTransformationMethod.getInstance());
         signIn = findViewById(R.id.btn_signIn);
         tapHere = findViewById(R.id.ps_fg);
 
@@ -68,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         signIn.setOnClickListener(v -> {
             String username = email.getText().toString();
             String tvpassword = password.getText().toString();
-            if("adema".equals(username) && "nyamovna".equals(tvpassword)){
+            if("admin".equals(username) && "admin".equals(tvpassword)){
                 Toast.makeText(this, "Вы успешно зарегистрировались", Toast.LENGTH_SHORT).show();
                 welcome.setText("Добро пожаловать, " + username + "!");
 
