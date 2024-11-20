@@ -18,6 +18,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView enter;
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
+        View rootView = findViewById(android.R.id.content);
         email.addTextChangedListener(textWatcher);
         password.addTextChangedListener(textWatcher);
 
@@ -73,9 +76,8 @@ public class MainActivity extends AppCompatActivity {
             String username = email.getText().toString();
             String tvpassword = password.getText().toString();
             if("admin".equals(username) && "admin".equals(tvpassword)){
-                Toast.makeText(this, "Вы успешно зарегистрировались", Toast.LENGTH_SHORT).show();
-                welcome.setText("Добро пожаловать, " + username + "!");
-
+                Snackbar.make(v, "Вы успешно зарегистрировались!", Snackbar.LENGTH_SHORT).show();
+                welcome.setText("Добро пожаловать " + username + "!");
                 welcome.setVisibility(View.VISIBLE);
                 register.setVisibility(View.GONE);
                 tapHere.setVisibility(View.GONE);
@@ -84,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 password.setVisibility(View.GONE);
                 signIn.setVisibility(View.GONE);
             } else {
-                Toast.makeText(this, "Неправильно ввели пароль или логин", Toast.LENGTH_SHORT).show();
+                Snackbar.make(v, "Неправильно ввели пароль или логин", Snackbar.LENGTH_SHORT).show();
             }
         });
     }
